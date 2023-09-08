@@ -1,10 +1,31 @@
-import React from 'react'
+
+// App.js
+import React, { useContext } from 'react'
 import './App.css';
+import CartState from './context/cart/CartState';
+import CartContext from './context/cart/CartContext';
 
 
-const App = () => {
+
+const App = () => {  
   return (
-    <div>App</div>
+    <div>
+      <CartState>
+        App        
+        <Test_Context/>
+
+      </CartState>
+    </div>
+  )
+}
+
+
+
+const Test_Context = () => {
+  const {test} = useContext(CartContext)
+  
+  return (
+    <div>{test}</div>
   )
 }
 
