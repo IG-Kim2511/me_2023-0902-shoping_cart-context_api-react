@@ -2,8 +2,9 @@
 // App.js
 import React, { useContext } from 'react'
 import './App.css';
+
 import CartState from './context/cart/CartState';
-import CartContext from './context/cart/CartContext';
+import Test from './components/Test_context';
 
 
 
@@ -11,8 +12,9 @@ const App = () => {
   return (
     <div>
       <CartState>
-        App        
-        <Test_Context/>
+        App      
+        <Test/>  
+  
 
       </CartState>
     </div>
@@ -20,13 +22,5 @@ const App = () => {
 }
 
 
-
-const Test_Context = () => {
-  const {test} = useContext(CartContext)
-  
-  return (
-    <div>{test}</div>
-  )
-}
 
 export default App
