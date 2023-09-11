@@ -13,7 +13,7 @@ const HomePage = () => {
     <div>
         HomePage {test}
 
-        <button onClick={()=>setTest("hi4 test")}>context</button>
+        <button onClick={()=>setTest("hi4 test")}>test context</button>
         <br />
         <main className="products__wrapper">
             {products.map((product)=>(
