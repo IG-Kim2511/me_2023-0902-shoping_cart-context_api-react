@@ -11,15 +11,18 @@ import TestContext from './context/TestContext';
 import CartContext2 from './context/CartContext2';
 
 
-//🍀🍀🍀 cartcontext2
 
+const App = () => {  
 
+  const [test, setTest] = useState('hi2 test')
+
+  
+  //🍀🍀🍀 cartcontext2
     
   // 
   const SHOW_HIDE_CART = "SHOW_HIDE_CART";
   const ADD_TO_CART = "ADD_TO_CART";
   const REMOVE_ITEM = "REMOVE_ITEM";
-
 
     // 🍀reducer
     const CartReducer2 = (state, action) => {
@@ -57,9 +60,6 @@ import CartContext2 from './context/CartContext2';
         }
       };
     
-
-  const CartState2 = ({children}) => {    
-
       // 🍀initialState
 
       const initialState ={
@@ -72,37 +72,35 @@ import CartContext2 from './context/CartContext2';
 
 
       
-      const addToCart = (item) => {    
+      const addToCart2 = (item) => {    
         dispatch({ type: ADD_TO_CART, payload: item });    
       };
       
-      const showHideCart = () => {    
+      const showHideCart2 = () => {    
         dispatch({ type: SHOW_HIDE_CART });    
       };
       
-      const removeItem = (id) => {    
+      const removeItem2 = (id) => {    
         dispatch({ type: REMOVE_ITEM, payload: id });    
       };
-    }
-
 
       
 
-const App = () => {  
-
-  const [test, setTest] = useState('hi2 test')
-
   return (
     <div>
-      <TestContext.Provider value={{test,setTest}}>
-        <CartState>
+      <CartContext2.Provider value={{
+        addToCart2,showHideCart2,removeItem2,
+      }}>
+        <TestContext.Provider value={{test,setTest}}>
+          <CartState>
 
-        -------------- App   --------------   
-        
-        <HomePage/>
-        
-        </CartState>
-      </TestContext.Provider>
+          -------------- App   --------------   
+          
+          <HomePage/>
+          
+          </CartState>
+        </TestContext.Provider>
+        </CartContext2.Provider>
     </div>
   )
 }
