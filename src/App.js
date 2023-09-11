@@ -31,7 +31,7 @@ const App = () => {
                 case SHOW_HIDE_CART: {
                   return {
                     ...state,
-                    showCart: !state.showCart, /* 🍀show & hide Btn */
+                    showCart2: !state.showCart2, /* 🍀show & hide Btn */
                   };
                 }
       
@@ -40,7 +40,7 @@ const App = () => {
           case ADD_TO_CART: {
                   return {
                     ...state,
-                    cartItems: [...state.cartItems, action.payload],
+                    cartItems2: [...state.cartItems2, action.payload],
                   };
                 }
       
@@ -50,7 +50,7 @@ const App = () => {
           case REMOVE_ITEM: {
                   return {
                     ...state,
-                    cartItems: state.cartItems.filter(
+                    cartItems2: state.cartItems2.filter(
                       (item) => item._id !== action.payload
                       ),
                     };
@@ -63,12 +63,15 @@ const App = () => {
       // 🍀initialState
 
       const initialState ={
-        showCart:false,
-        cartItems:[],
-        // test:"test",
+        showCart2:false,
+        cartItems2:[],
+        test2:"test2",
       }
+      
 
       const [state, dispatch] = useReducer(CartReducer2, initialState);
+
+      console.log(state.cartItems2)
 
 
       
@@ -89,12 +92,16 @@ const App = () => {
   return (
     <div>
       <CartContext2.Provider value={{
+        showCart2:state.showCart2,  
+        cartItems2:state.cartItems2,  
+        test2:state.test2,  
         addToCart2,showHideCart2,removeItem2,
       }}>
         <TestContext.Provider value={{test,setTest}}>
           <CartState>
 
           -------------- App   --------------   
+          
           
           <HomePage/>
           

@@ -4,6 +4,7 @@ import CartContext from '../context/cart/CartContext'
 import Rating from './Rating'
 
 import './ProductCard.css'
+import CartContext2 from '../context/CartContext2'
 
 
 
@@ -13,9 +14,11 @@ const ProductCard = ({product}) => {
   const {addToCart} = useContext(CartContext)
   
   
+  const {test2,addToCart2, cartItems2} = useContext(CartContext2)
+
   return (
     <div>
-      ProductCard
+      ProductCard  {test2}  
         <main className="productCart__wrapper">
             <img src={product.image}/>
             <h4>{product.name}</h4>
@@ -26,11 +29,11 @@ const ProductCard = ({product}) => {
               <Rating/>
             </div>
             
-            <button  onClick={() => addToCart(product)}>
+            <button  onClick={() => addToCart2(product) }>
             add to cart
             </button>
 
-
+          
         </main>
     </div>
   )
