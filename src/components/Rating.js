@@ -15,11 +15,11 @@ const Rating =({ value, text, color }) => {
 
   for (let i = 1; i <= maxStars; i++) {
     if (i <= value) {
-      starArray.push(<StarIcon key={i} />);
+      starArray.push(<StarIcon key={i} style={{color:"red"}}/>);      
     } else if (i - 0.5 <= value) {
-      starArray.push(<StarHalfIcon key={i} />);
+      starArray.push(<StarHalfIcon key={i} style={{color:"red"}}/>);
     } else {
-      starArray.push(<StarOutlineIcon key={i} />);
+      starArray.push(<StarOutlineIcon key={i} style={{color:"red"}} />);
     }
   }
 
