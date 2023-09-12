@@ -6,18 +6,14 @@ import './App.css';
 import ProductCard from './components/ProductCard';
 import HomePage from './pages/HomePage';
 
-import CartState from './context/cart/CartState';
-import TestContext from './context/TestContext';
-import CartContext2 from './context/CartContext2';
+import CartContext from './context/CartContext';
 
 
 
 const App = () => {  
 
-  const [test, setTest] = useState('hi2 test')
-
   
-  //🍀🍀🍀 cartcontext2
+  //🍀🍀🍀 CartContext
     
   // 
   const SHOW_HIDE_CART = "SHOW_HIDE_CART";
@@ -25,13 +21,13 @@ const App = () => {
   const REMOVE_ITEM = "REMOVE_ITEM";
 
     // 🍀reducer
-    const CartReducer2 = (state, action) => {
+    const CartReducer = (state, action) => {
 
         switch (action.type) {    
                 case SHOW_HIDE_CART: {
                   return {
                     ...state,
-                    showCart2: !state.showCart2, /* 🍀show & hide Btn */
+                    showCart: !state.showCart, /* 🍀show & hide Btn */
                   };
                 }
       
@@ -40,7 +36,7 @@ const App = () => {
           case ADD_TO_CART: {
                   return {
                     ...state,
-                    cartItems2: [...state.cartItems2, action.payload],
+                    cartItems: [...state.cartItems, action.payload],
                   };
                 }
       
@@ -50,7 +46,7 @@ const App = () => {
           case REMOVE_ITEM: {
                   return {
                     ...state,
-                    cartItems2: state.cartItems2.filter(
+                    cartItems: state.cartItems.filter(
                       (item) => item._id !== action.payload
                       ),
                     };
@@ -63,27 +59,27 @@ const App = () => {
       // 🍀initialState
 
       const initialState ={
-        showCart2:false,
-        cartItems2:[],
+        showCart:false,
+        cartItems:[],
         test2:"test2",
       }
       
 
-      const [state, dispatch] = useReducer(CartReducer2, initialState);
+      const [state, dispatch] = useReducer(CartReducer, initialState);
 
-      console.log(state.cartItems2)
+      console.log(state.cartItems)
 
 
       
-      const addToCart2 = (item) => {    
+      const addToCart = (item) => {    
         dispatch({ type: ADD_TO_CART, payload: item });    
       };
       
-      const showHideCart2 = () => {    
+      const showHideCart = () => {    
         dispatch({ type: SHOW_HIDE_CART });    
       };
       
-      const removeItem2 = (id) => {    
+      const removeItem = (id) => {    
         dispatch({ type: REMOVE_ITEM, payload: id });    
       };
 
@@ -91,23 +87,17 @@ const App = () => {
 
   return (
     <div>
-      <CartContext2.Provider value={{
-        showCart2:state.showCart2,  
-        cartItems2:state.cartItems2,  
-        test2:state.test2,  
-        addToCart2,showHideCart2,removeItem2,
+      <CartContext.Provider value={{
+        showCart:state.showCart,  
+        cartItems:state.cartItems,  
+        test:state.test,  
+        addToCart,showHideCart,removeItem,
       }}>
-        <TestContext.Provider value={{test,setTest}}>
-          <CartState>
-
-          -------------- App   --------------   
-          
-          
+       
           <HomePage/>
           
-          </CartState>
-        </TestContext.Provider>
-        </CartContext2.Provider>
+          
+        </CartContext.Provider>
     </div>
   )
 }

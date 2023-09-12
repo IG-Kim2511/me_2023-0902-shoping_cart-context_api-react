@@ -1,24 +1,22 @@
 import React, { useContext } from 'react'
 // context
-import CartContext from '../context/cart/CartContext'
+
 import Rating from './Rating'
 
 import './ProductCard.css'
-import CartContext2 from '../context/CartContext2'
+import CartContext from '../context/CartContext'
 
 
 
 // 👉HomePage.js
 const ProductCard = ({product}) => {
-
-  const {addToCart} = useContext(CartContext)
+ 
   
-  
-  const {test2,addToCart2, cartItems2} = useContext(CartContext2)
+  const {test,addToCart, cartItems} = useContext(CartContext)
 
   return (
     <div>
-      ProductCard  {test2}  
+      ProductCard  {test}  
         <main className="productCart__wrapper">
             <img src={product.image}/>
             <h4>{product.name}</h4>
@@ -29,7 +27,7 @@ const ProductCard = ({product}) => {
               <Rating/>
             </div>
             
-            <button  onClick={() => addToCart2(product) }>
+            <button  onClick={() => addToCart(product) }>
             add to cart
             </button>
 
