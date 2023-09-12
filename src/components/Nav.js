@@ -1,35 +1,46 @@
-import React, { useContext } from 'react'
-import CartContext from '../context/CartContext'
+import React, { useContext } from "react";
+import "./Nav.css";
+import CartContext from "../context/CartContext";
 
-import SearchIcon from '@mui/icons-material/Search';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-
+import SearchIcon from "@mui/icons-material/Search";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 const Nav = () => {
-    const {cartItems, showHideCart} =  useContext(CartContext)  
+  const { cartItems, showHideCart } = useContext(CartContext);
   return (
     <nav>
-        <div>Store</div>
-        <div>
-            <div>
-                <input text='text'/>
-                <SearchIcon/>
-                
-            </div>
+      <div className="nav__left">Secondhand Store</div>
+      <main className="nav__middle">
+        <div className="input__wrapper">
+          <input text="text" />
+          <SearchIcon />
         </div>
-        <div>
+      </main>
+      <main className='nav__right'>
         <div className="cart_icon" onClick={showHideCart}>
-            <ShoppingCartIcon/>
-            {cartItems.length >0 && (
-                <div>
-                <span>{cartItems.length}</span>
-                </div>
-            )}
+          <ShoppingCartIcon />
 
+          <span className="item__count">
+            {cartItems.length}
+          </span>
+
+          
+ 
         </div>
-        </div>
+      </main>
     </nav>
-  )
-}
+  );
+};
 
-export default Nav
+export default Nav;
+
+// <div className='item__count'>
+// <span>{cartItems.length}</span>
+// </div>
+
+// {/* 🍀Array.length */}
+// {cartItems.length > 0 && (
+// <div className='item__count'>
+//   <span>{cartItems.length}</span>
+// </div>
+// )}
