@@ -61,7 +61,7 @@ const App = () => {
     const initialState ={
       showCart:false,
       cartItems:[],   /* cart */
-      test2:"test2",
+      test:"hi test",
     }
     
     const [state, dispatch] = useReducer(CartReducer, initialState);
@@ -89,7 +89,7 @@ const App = () => {
         addToCart,showHideCart,removeItem,
       }}>       
           <HomePage/>  
-          
+
         </CartContext.Provider>
     </div>
   )
