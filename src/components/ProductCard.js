@@ -12,6 +12,7 @@ import CartContext from '../context/CartContext'
 const ProductCard = ({product}) => {
  
   
+  // context
   const {test,addToCart, cartItems} = useContext(CartContext)
 
   return (
@@ -24,6 +25,7 @@ const ProductCard = ({product}) => {
         </div>
         <div className='ProductCard__Rateing'>
           <Rating
+            // props
             value={product.rating}
             text={`${product.numReviews} reviews`}
           />

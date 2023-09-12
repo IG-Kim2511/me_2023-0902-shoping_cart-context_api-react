@@ -1,58 +1,27 @@
-import { createContext, useContext, useState } from 'react';
+import React from 'react';
+import StarIcon from '@mui/icons-material/Star';
+import StarHalfIcon from '@mui/icons-material/StarHalf';
+import StarOutlineIcon from '@mui/icons-material/StarOutline';
 
-const ThemeContext = createContext(null);
+const Rating = ({ rating }) => {
+  const maxStars = 5;
+  const starArray = [];
 
-export default function MyApp() {
-  const [theme, setTheme] = useState('light');
+  for (let i = 1; i <= maxStars; i++) {
+    if (i <= rating) {
+      starArray.push(<StarIcon key={i} />);
+    } else if (i - 0.5 <= rating) {
+      starArray.push(<StarHalfIcon key={i} />);
+    } else {
+      starArray.push(<StarOutlineIcon key={i} />);
+    }
+  }
+
   return (
-
-    <ThemeContext.Provider value={theme}>
-    
-        <Form />
-        
-        <label>
-            <input
-            type="checkbox"
-            checked={theme === 'dark'}
-            onChange={(e) => {
-                setTheme(e.target.checked ? 'dark' : 'light')
-            }}
-            />
-            Use dark mode
-        
-        </label>
-
-    </ThemeContext.Provider>
-  )
-}
-
-function Form({ children }) {
-  return (
-    <Panel title="Welcome">
-      <Button>Sign up</Button>
-      <Button>Log in</Button>
-    </Panel>
+    <div>
+      {starArray}
+    </div>
   );
-}
+};
 
-function Panel({ title, children }) {
-  const theme = useContext(ThemeContext);
-  const className = 'panel-' + theme;
-  return (
-    <section className={className}>
-      <h1>{title}</h1>
-      {children}
-    </section>
-  )
-}
-
-function Button({ children }) {
-  const theme = useContext(ThemeContext);
-  const className = 'button-' + theme;
-  return (
-    <button className={className}>
-    sdf
-      {children}
-    </button>
-  );
-}
+export default Rating;

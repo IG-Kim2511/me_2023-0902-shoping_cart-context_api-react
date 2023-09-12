@@ -1,4 +1,14 @@
 
+/* 
+  <🦄🦄AI 질문 목록 정리>
+  <🍄me_2023-0902-react>
+     🍀rating code with material ui icon
+     
+  <🦄🦄 사용 스킬 정리>
+  <🍄me_2023-0902-folder>  
+    🍄
+*/
+
 // App.js
 import React, { useContext, useReducer, useState } from 'react'
 import './App.css';
