@@ -13,12 +13,12 @@ import CartContext from './context/CartContext';
 const App = () => {  
 
   
-  //🍀🍀🍀 CartContext
-    
-  // 
-  const SHOW_HIDE_CART = "SHOW_HIDE_CART";
-  const ADD_TO_CART = "ADD_TO_CART";
-  const REMOVE_ITEM = "REMOVE_ITEM";
+  //🍀🍀🍀 CartContext   
+  
+    // 🍉action type
+    const SHOW_HIDE_CART = "SHOW_HIDE_CART";
+    const ADD_TO_CART = "ADD_TO_CART";
+    const REMOVE_ITEM = "REMOVE_ITEM";
 
     // 🍀reducer
     const CartReducer = (state, action) => {
@@ -54,36 +54,31 @@ const App = () => {
           default:
             return state;
         }
-      };
+    };
     
-      // 🍀initialState
+    // 🍀initialState
 
-      const initialState ={
-        showCart:false,
-        cartItems:[],
-        test2:"test2",
-      }
-      
-
-      const [state, dispatch] = useReducer(CartReducer, initialState);
-
-      console.log(state.cartItems)
-
-
-      
-      const addToCart = (item) => {    
-        dispatch({ type: ADD_TO_CART, payload: item });    
-      };
-      
-      const showHideCart = () => {    
-        dispatch({ type: SHOW_HIDE_CART });    
-      };
-      
-      const removeItem = (id) => {    
-        dispatch({ type: REMOVE_ITEM, payload: id });    
-      };
-
-      
+    const initialState ={
+      showCart:false,
+      cartItems:[],   /* cart */
+      test2:"test2",
+    }
+    
+    const [state, dispatch] = useReducer(CartReducer, initialState);
+    console.log(state.cartItems)
+    
+    // 🍉dispatch
+    const addToCart = (item) => {    
+      dispatch({ type: ADD_TO_CART, payload: item });    
+    };
+    
+    const showHideCart = () => {    
+      dispatch({ type: SHOW_HIDE_CART });    
+    };
+    
+    const removeItem = (id) => {    
+      dispatch({ type: REMOVE_ITEM, payload: id });    
+    };      
 
   return (
     <div>   
@@ -92,10 +87,8 @@ const App = () => {
         cartItems:state.cartItems,  
         test:state.test,  
         addToCart,showHideCart,removeItem,
-      }}>
-       
-          <HomePage/>
-          
+      }}>       
+          <HomePage/>  
           
         </CartContext.Provider>
     </div>
