@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
-// context
-
+import './ProductCard.css'
 import Rating from './Rating'
 
-import './ProductCard.css'
+
+// context
 import CartContext from '../context/CartContext'
 
 
@@ -15,25 +15,28 @@ const ProductCard = ({product}) => {
   const {test,addToCart, cartItems} = useContext(CartContext)
 
   return (
-    <div>
-      ProductCard  {test}  
-        <main className="productCart__wrapper">
-            <img src={product.image}/>
-            <h4>{product.name}</h4>
-            <div>
-              <h5>$ {product.price}</h5>
-            </div>
-            <div>
-              <Rating/>
-            </div>
-            
-            <button  onClick={() => addToCart(product) }>
-            add to cart
-            </button>
-
-          
-        </main>
-    </div>
+    <div className='productCard__wrapper'>
+      <div>
+        <img className='productCard__img' src={product.image} alt='' />
+        <h4>{product.name}</h4>
+        <div className='ProductCard__price'>
+          <h5>$ {product.price}</h5>
+        </div>
+        <div className='ProductCard__Rateing'>
+          <Rating
+            value={product.rating}
+            text={`${product.numReviews} reviews`}
+          />
+        </div>
+        <button
+          className='ProductCard__button'
+          // 👉 dispatch
+          onClick={() => addToCart(product)}
+        >
+          Add to basket
+        </button>
+      </div>
+  </div>
   )
 }
 
