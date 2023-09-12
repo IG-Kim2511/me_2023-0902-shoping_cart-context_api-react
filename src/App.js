@@ -18,6 +18,7 @@ import HomePage from './pages/HomePage';
 
 import CartContext from './context/CartContext';
 import Nav from './components/Nav';
+import Cart from './components/Cart';
 
 
 
@@ -100,6 +101,7 @@ const App = () => {
         addToCart,showHideCart,removeItem,
       }}>       
           <Nav/>
+          <Cart/>
           <HomePage/>  
 
         </CartContext.Provider>
