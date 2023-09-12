@@ -86,7 +86,7 @@ const App = () => {
       
 
   return (
-    <div>
+    <div>   
       <CartContext.Provider value={{
         showCart:state.showCart,  
         cartItems:state.cartItems,  
