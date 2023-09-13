@@ -20,6 +20,28 @@ const initialState = {
 };
 
 // 🍀reducer
+/* 
+
+/* 
+  🍄0311-0540. ADD_TO_CART
+
+  10. cart안에 item에 클릭한 item이 있는지  find()
+
+  15.  cart안에 아이템 이 없을때,  
+  기존의 다른아이템 + 
+  payload로 온 item... spread문법 사용... []벗겨냄,  qty:1 추가함
+
+  20. cart안에  item 이 있을때, 
+  20-10. cart안 item의 id === payload로 온 item의 id 체크 - map()
+
+  30. 둘이 같다면  cart안에 그 아이템 있음, 
+  cart안 item... spread문법 사용... []벗겨냄 , qty에 +1 함
+
+  30-10. 둘이 다르면 cart안에 아이템 없음,  그 아이템 그대로 return  (변화없음)
+
+
+*/
+
 const CartReducer = (state, action) => {
   switch (action.type) {
     case SHOW_HIDE_CART: {
@@ -98,7 +120,11 @@ const CartState = ({ children }) => {
   // 🍀function
   // 🍉totalPrice,
   // 🍚.reduce함수 :배열의 모든 요소를 순회하면서 각 요소에 대한 누적된 값을 계산하는 데 사용됩니다.
-  const totalPrice = state.cartItems.reduce((total, item) => total + item.price, 0);
+  // const totalPrice = state.cartItems.reduce((total, item) => total + item.price, 0);
+  // const totalPrice = state.cartItems.reduce((total, item) => total + item.qty * item.price, 0).toFixed(2);
+  const totalPrice = state.cartItems.reduce((total, item) => total + item.qty * item.price, 0);
+
+
 
   return (
     <CartContext.Provider

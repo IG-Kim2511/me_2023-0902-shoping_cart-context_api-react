@@ -6,7 +6,7 @@ import CartContext from "../context/CartContext";
 import CloseIcon from "@mui/icons-material/Close";
 
 const Cart = () => {
-  const { showCart, cartItems, showHideCart, removeItem, totalPrice } =
+  const { addToCart,showCart, cartItems, showHideCart, removeItem, totalPrice } =
     useContext(CartContext);
 
   console.log(showCart);
@@ -37,8 +37,10 @@ const Cart = () => {
                         <li className="CartItem__item">
                           <img src={item.image} alt="" />
                           <div>
-                            {item.name} , {item.price} $
-                          </div>
+                          <p>{item.name} , {item.price} $</p>
+                            
+                            <p>{item.qty} x ${item.price} = ${parseFloat(item.qty * item.price).toFixed(2)}</p>
+                          </div>                     
                           <button
                             className="CartItem__button"
                             onClick={() => removeItem(item._id)}
