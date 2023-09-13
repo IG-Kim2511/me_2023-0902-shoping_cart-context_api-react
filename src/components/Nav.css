@@ -4,7 +4,19 @@ nav {
     color: white;
     background-color: #1d1f27;
 
-    display: flex;
+
+    /*     🍀1143 
+    <🍀layout 똑같이 배분>
+
+    .부모{display : flex }
+
+    .자식1 {flex: 1}
+
+    .자식2 {flex: 1}
+
+    .자식3 {flex: 1}
+  */
+    display: flex;    /* 👉1143 */
     align-items: center;
     justify-content: center;
 
@@ -17,13 +29,13 @@ nav {
   }
   
   .nav__left {
-    flex: 1;
+    flex: 1;    /* 👉1143 */
   }
   
   .nav__middle {
     color: gray;
   
-    flex: 1;
+    flex: 1;    /* 👉1143 */
   }
   
   .input__wrapper {
@@ -47,39 +59,27 @@ nav {
     outline: none;
   }
   
-  .nav__right {
-    flex: 1;
- 
-    text-align: right;
-    
+  .nav__right {   
+      flex: 1;      /* 👉1143 */
+
+      /* 🍀왼쪽, 오른쪽에 붙이는 layout */
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
   }
   
   .cart__icon {
     position: relative;
-
-    width: max-content;
     margin-left: auto;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
+    margin: auto;
   }
   
   .item__count {
-
-    height: 14px;
-    width: 14px;
-    padding: 0.3rem;
-/* 
-    position: absolute;
-    top: -50%;
-    right: -50%;
-         */
-    /* display: grid; */
-    place-items: center;
-    background-color: red;
-    z-index: 10;
-    border-radius: 50%;
-    font-size: 1rem;
+    margin: auto;
 
   }
-  

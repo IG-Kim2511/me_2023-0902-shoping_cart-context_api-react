@@ -22,6 +22,7 @@ import Cart from './components/Cart';
 
 
 
+
 const App = () => {  
 
   
@@ -106,6 +107,8 @@ const App = () => {
         test:state.test,  
         addToCart,showHideCart,removeItem,totalPrice,
       }}>       
+
+      
           <Nav/>
           <Cart/>
           <HomePage/>  
