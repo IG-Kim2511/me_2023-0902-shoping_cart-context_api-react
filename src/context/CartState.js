@@ -18,36 +18,60 @@ const CartState = ({children}) => {
     // 🍀reducer
     const CartReducer = (state, action) => {
 
-        switch (action.type) {    
-                case SHOW_HIDE_CART: {
-                  return {
+          switch (action.type) {    
+            case SHOW_HIDE_CART: {
+              return {
+                ...state,
+                showCart: !state.showCart, /* 🍀show & hide Btn */
+              };
+            }
+      
+            /* 🍀...spread operator 
+                + new item add */
+            case ADD_TO_CART: {
+
+              // check if product is already existing
+                const exist = state.find((x) => x._id === action.payload._id);
+
+              // incerase qty +1 or return wity qty:1
+                if (exist) {
+                  return state.map((x) => 
+                    x._id === action.payload._id ?
+                    {...x,
+                    qty: x.qty + 1}
+                    : x
+                  )
+                  
+                } else {
+                  return[
                     ...state,
-                    showCart: !state.showCart, /* 🍀show & hide Btn */
+                    {
+                      ...action.payload,
+                      qty:1,
+                    }
+                  ]
+                  
+                }
+
+                return {
+                  ...state,
+                  cartItems: [...state.cartItems, action.payload],
+                };
+              }
+        
+            /* 🍀remove: 
+              .filter
+              item._id 빼고 새로 리스트 만듬 */
+            case REMOVE_ITEM: {
+                return {
+                  ...state,
+                  cartItems: state.cartItems.filter(
+                    (item) => item._id !== action.payload
+                    ),
                   };
                 }
-      
-          /* 🍀...spread operator 
-              + new item add */
-          case ADD_TO_CART: {
-                  return {
-                    ...state,
-                    cartItems: [...state.cartItems, action.payload],
-                  };
-                }
-      
-          /* 🍀remove: 
-            .filter
-            item._id 빼고 새로 리스트 만듬 */
-          case REMOVE_ITEM: {
-                  return {
-                    ...state,
-                    cartItems: state.cartItems.filter(
-                      (item) => item._id !== action.payload
-                      ),
-                    };
-                  }
-          default:
-            return state;
+            default:
+              return state;
         }
     };
     
