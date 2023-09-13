@@ -25,10 +25,11 @@ const Nav = () => {
     <nav>
       <div className="nav__left">Secondhand Store</div>
       <main className="nav__middle">
-        <div className="input__wrapper">
-          <input text="text" />
-          <SearchIcon />
-        </div>
+        {/*        
+          <div className="input__wrapper">
+            <input text="text" />
+            <SearchIcon />
+          </div> */}
       </main>
       <main className='nav__right'>
         <div className="cart_icon" onClick={showHideCart}>
