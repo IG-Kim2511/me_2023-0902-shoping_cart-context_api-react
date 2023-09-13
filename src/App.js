@@ -1,12 +1,24 @@
 
-/* 
-  <🦄🦄AI 질문 목록 정리>
-  <🍄me_2023-0902-react>
-     🍀rating code with material ui icon
-     
+/*     
   <🦄🦄 사용 스킬 정리>
-  <🍄me_2023-0902-folder>  
-    🍄
+  <🍄me_2023-0902-shoping_cart-context_api-react>
+     🦄context방법1 : 기본.. app.js에 context 전부 정리
+
+     //./context/CartState.js 
+     🦄context방법2 : 따로 다른 파일에 옮겨넣음 (현재 쓰고있는 방법)  
+     🥒{children}
+
+     // Nav.js
+      🍀MUI Badge
+     🍀Array.length
+      🍀
+        {showCart ? null :(<div></div>)}
+
+        {cartItems.length === 0 ? (
+          null
+        ) : (
+          <ul></ul>
+        )}
 */
 
 // App.js

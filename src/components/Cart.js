@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import "./Cart.css";
 
 import CartContext from "../context/CartContext";
-import CartItems from "./CartItems";
 
 import CloseIcon from "@mui/icons-material/Close";
 
