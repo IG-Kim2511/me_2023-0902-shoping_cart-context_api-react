@@ -37,8 +37,8 @@ const Cart = () => {
                         <li className="CartItem__item">
                           <img src={item.image} alt="" />
                           <div>
-                          <p>{item.name} , {item.price} $</p>
-                            
+                           <p>{item.name} , {item.price} $</p>
+                            {/* 🍀each item price */}                            
                             <p>{item.qty} x ${item.price} = ${parseFloat(item.qty * item.price).toFixed(2)}</p>
                           </div>                     
                           <button

@@ -120,8 +120,6 @@ const CartState = ({ children }) => {
   // 🍀function
   // 🍉totalPrice,
   // 🍚.reduce함수 :배열의 모든 요소를 순회하면서 각 요소에 대한 누적된 값을 계산하는 데 사용됩니다.
-  // const totalPrice = state.cartItems.reduce((total, item) => total + item.price, 0);
-  // const totalPrice = state.cartItems.reduce((total, item) => total + item.qty * item.price, 0).toFixed(2);
   const totalPrice = state.cartItems.reduce((total, item) => total + item.qty * item.price, 0);
 
 
