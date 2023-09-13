@@ -32,19 +32,18 @@ const Nav = () => {
       </main>
       <main className='nav__right'>
         <div className="cart_icon" onClick={showHideCart}>
-        
-      {/*     <ShoppingCartIcon />
 
-          <span className="item__count">
-            {cartItems.length}
-          </span> */}
+          {cartItems.length === 0 ? (
+            <div>Cart is empty</div>
+          ) : (  
 
-          <Stack spacing={3} direction="row" className="item__count">    
-            <Badge color="secondary" overlap="circular" badgeContent={cartItems.length} className="badge">
-            <ShoppingCartIcon />
-              
-            </Badge>         
-          </Stack>
+            <Stack spacing={3} direction="row" className="item__count">    
+              <Badge color="secondary" overlap="circular" badgeContent={cartItems.length} className="badge">
+              <ShoppingCartIcon />
+                
+              </Badge>         
+            </Stack>
+          )}
  
         </div>
       </main>

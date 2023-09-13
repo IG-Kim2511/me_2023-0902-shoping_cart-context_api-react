@@ -13,50 +13,56 @@ const Cart = () => {
   console.log(showCart);
 
   return (
-    <div>
-      Cart
-      {showCart ? (
-        <div></div>
-      ) : (
-        <main className="cart__wrapper">
-          <div style={{ textAlign: "right" }}>
-            <CloseIcon
-              style={{ cursor: "pointer" }}
-              className="Close-Icon"
-              aria-hidden="true"
-              onClick={showHideCart}
-            />
-          </div>
-          <div className="cart__innerWrapper">
-            {cartItems.length === 0 ? (
-              <h4>Cart is empty</h4>
-            ) : (
-              <ul>
-                {cartItems.map((item) => (
-                  <li className="CartItem__item">
-                    <img src={item.image} alt="" />
-                    <div>
-                      {item.name} , {item.price} $
-                    </div>
-                    <button
-                      className="CartItem__button"
-                      onClick={() => removeItem(item._id)}
-                    >
-                      Remove
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-
-          <div className="Cart__cartTotal">
-            <div>Total Price : </div>
-            <div style={{ marginLeft: 5 }}>{totalPrice.toFixed(2)}</div>
-          </div>
-        </main>
-      )}
-    </div>
+    <section>    
+      {showCart ? null :(
+        <div>
+          {cartItems.length === 0 ? (
+            null
+            ) : (        
+            (
+              <main className="cart__wrapper">
+                <div style={{ textAlign: "right" }}>
+                  <CloseIcon
+                    style={{ cursor: "pointer" }}
+                    className="Close-Icon"
+                    aria-hidden="true"
+                    onClick={showHideCart}
+                  />
+                </div>
+                <div className="cart__innerWrapper">
+                  {cartItems.length === 0 ? (
+                    null
+                  ) : (
+                    <ul>
+                      {cartItems.map((item) => (
+                        <li className="CartItem__item">
+                          <img src={item.image} alt="" />
+                          <div>
+                            {item.name} , {item.price} $
+                          </div>
+                          <button
+                            className="CartItem__button"
+                            onClick={() => removeItem(item._id)}
+                          >
+                            Remove
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>  
+                <div className="Cart__cartTotal">
+                  <div>Total Price : </div>
+                  <div style={{ marginLeft: 5 }}>{totalPrice.toFixed(2)}</div>
+                </div>
+              </main>
+            )
+          )}
+        </div>
+      )    
+      }
+      
+    </section>
   );
 };
 
