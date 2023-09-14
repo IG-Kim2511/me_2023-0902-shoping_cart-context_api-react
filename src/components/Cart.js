@@ -39,7 +39,7 @@ const Cart = () => {
                           <div>
                            <p>{item.name} , {item.price} $</p>
                             {/* 🍀each item price */}                            
-                            <p>{item.qty} x ${item.price} = ${parseFloat(item.qty * item.price).toFixed(2)}</p>
+                            <p>${item.price} x {item.qty} = ${parseFloat(item.qty * item.price).toFixed(2)}</p>
                           </div>                     
                           <button
                             className="CartItem__button"
