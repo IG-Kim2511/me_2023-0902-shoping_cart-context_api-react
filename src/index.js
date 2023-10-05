@@ -7,6 +7,8 @@ import CartState from './context/CartState';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+  {/*🦄context방법2 : 따로 다른 파일에 옮겨넣음 (현재 쓰고있는 방법)  
+        👉./context/CartState.js  */}
     <CartState>
       <App />
     </CartState>
@@ -99,10 +101,5 @@ root.render(
           <Nav/>
           <Cart/>
           <HomePage/>  
-        </CartContext.Provider> 
-  
-        
-  🦄context방법2 : 따로 다른 파일에 옮겨넣음 (현재 쓰고있는 방법)  
-        👉./context/CartState.js 
-
+        </CartContext.Provider>   
  */
